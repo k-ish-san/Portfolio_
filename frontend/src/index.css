@@ -1,0 +1,11 @@
+
+@import "tailwindcss";
+@custom-variant light (&:where(.light, .light *));
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import 'tailwindcss';
+@import 'tailwindcss/variants';
+
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+}
