@@ -1,8 +1,8 @@
 // src/components/Sidebar.tsx
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
-import CursorButton from "./CursorButton";
 import DownloadButton from "./DownloadButton";
+import CursorButton from "./CursorButton";
 import ProfileIntro from "./ProfileIntro";
 import Typewriter from "typewriter-effect";
 import {
