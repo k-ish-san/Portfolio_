@@ -119,7 +119,7 @@ export default function Sidebar() {
           ))}
         </nav>
         {/* ...bottom section (theme toggle, flags, etc.)... */}
-        <div className="flex flex-row justify-center space-x-32">
+        <div className="flex flex-row justify-center">
           <ThemeToggle />
           <CursorButton />
           <DownloadButton />
