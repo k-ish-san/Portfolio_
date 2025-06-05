@@ -122,6 +122,7 @@ export default function Sidebar() {
         <div className="flex flex-row justify-center space-x-32">
           <ThemeToggle />
           <CursorButton />
+          <DownloadButton />
         </div>
       </aside>
 
