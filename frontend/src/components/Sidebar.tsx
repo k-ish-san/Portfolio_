@@ -17,10 +17,6 @@ import {
   PencilSquareIcon,
 } from "@heroicons/react/24/solid";
 
-
-
-
-
 const menu = [
   { icon: <UserIcon className="w-6 h-6" />, label: "About me", path: "/" },
   {
@@ -59,7 +55,6 @@ const menu = [
     path: "/contact",
   },
 ];
-
 
 // If you want to use Heroicons for mobile, map menu items to icons
 const mobileMenu = [
@@ -110,7 +105,11 @@ export default function Sidebar() {
               to={item.path}
               end={item.path === "/"}
               className={({ isActive }) =>
-                `flex items-center hover:text-[#3aa5fd] gap-4 px-4 py-3 rounded-lg mb-2 cursor-pointer font-medium transition ${isActive ? "bg-[#3aa5fd] text-black hover:text-black"  : "text-gray-500"}`
+                `flex items-center hover:text-[#3aa5fd] gap-4 px-4 py-3 rounded-lg mb-2 cursor-pointer font-medium transition ${
+                  isActive
+                    ? "bg-[#3aa5fd] text-black hover:text-black"
+                    : "text-gray-500"
+                }`
               }
             >
               <span className="">{item.icon}</span>
@@ -119,10 +118,13 @@ export default function Sidebar() {
           ))}
         </nav>
         {/* ...bottom section (theme toggle, flags, etc.)... */}
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-row justify-center space-x-5.5">
+          {/* Theme button */}
           <ThemeToggle />
-          <CursorButton />
+          {/* Download button */}
           <DownloadButton />
+          {/* Magic Cursor */}
+          <CursorButton />
         </div>
       </aside>
 
