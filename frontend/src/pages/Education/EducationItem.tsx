@@ -1,5 +1,5 @@
 // src/components/EducationItem.tsx
-import React from "react";
+
 
 export interface EducationItemProps {
   degree: string;
