@@ -1,10 +1,9 @@
 
 import { Route, BrowserRouter as Router, Routes} from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-
+import Sidebar from "../components/Sidebar";
 
 // Pages
-import EducationTimeline from "./pages/Education/EducationTimeline";
+import EducationTimeline from "../pages/Education/EducationTimeline";
 // ...other imports
 
 function App() {
