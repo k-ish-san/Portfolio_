@@ -1,8 +1,6 @@
 
 @import "tailwindcss";
 
-@import 'tailwindcss';
-@import 'tailwindcss/variants';
 
 @custom-variant light (&:where(.light, .light *));
 @custom-variant dark (&:where(.dark, .dark *));
