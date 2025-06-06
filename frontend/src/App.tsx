@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 
 // Pages
-import About from "./pages/About";
+import About from "./pages/About/About";
 import EducationTimeline from "./pages/Education/EducationTimeline";
 import Skills from "./pages/Skills/Skills";
 import Projects from "./pages/Projects/Projects";
