@@ -63,7 +63,7 @@ export function Card({
   return (
     <div
       ref={cardRef}
-      className={`bg-blue-100 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 m-0 ${className} transform transition-transform duration-300 ease-in-out ${
+      className={`bg-blue-100 font-orbitron dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 m-0 ${className} transform transition-transform duration-300 ease-in-out ${
         isMounted ? "translate-x-0" : "translate-x-full"
       }`}
       style={{
@@ -78,13 +78,13 @@ export function Card({
       }}
     >
       {/* Card header */}
-      <div className="flex justify-between items-center p-4 border-b border-gray-600 dark:border-gray-700">
-        <h3 className="text-xl font-semibold font-orbitron text-gray-900 dark:text-white">
+      <div className="flex justify-between items-center p-4 border-b border-gray-600 border-l-8 border-l-[#3aa5fd]  dark:border-l-[#3aa5fd]">
+        <h3 className="text-3xl font-semibold font-orbitron text-gray-900 dark:text-white">
           {title}
         </h3>
         <button
           onClick={toggleFullScreen}
-          className="p-2 w-10 h-10"
+          className="p-2 w-10 h-10 hover:text-[#3aa5fd] dark:text-white"
           aria-label={isFullScreen ? "Exit full screen" : "Enter full screen"}
         >
           {isFullScreen ? fullScreenButton.exit : fullScreenButton.enter}

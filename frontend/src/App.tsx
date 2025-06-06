@@ -3,7 +3,9 @@ import { Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 
 // Pages
+import About from "./pages/About";
 import EducationTimeline from "./pages/Education/EducationTimeline";
+import Skills from "./pages/Skills/Skills";
 // ...other imports
 
 function App() {
@@ -13,7 +15,10 @@ function App() {
         <Sidebar />
         <main className="flex-1 bg-main-dark min-h-screen p-10">
           <Routes>
+            <Route path="/" element={<About />} />
             <Route path="/education" element={<EducationTimeline />} />
+            <Route path="/skills" element={<Skills />} />
+
             {/* ...other routes */}
           </Routes>
         </main>

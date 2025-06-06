@@ -1,5 +1,6 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import React, { useState, useEffect } from "react";
+import { Tooltip } from "react-tooltip";
 
 const DownloadButton: React.FC = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -24,6 +25,9 @@ const DownloadButton: React.FC = () => {
       <button
         onClick={handleClick}
         className="group relative p-3 rounded-xl transition flex justify-center items-center w-12 h-12 overflow-hidden shadow-lg shadow-gray-900"
+        data-tooltip-id="tooltip"
+        data-tooltip-content="Download Resume"
+        data-tooltip-place="top"
       >
         {/* Tray SVG */}
         <svg
@@ -94,6 +98,9 @@ const DownloadButton: React.FC = () => {
           />
         </svg>
       </button>
+
+      {/* Tooltip */}
+      <Tooltip id="tooltip" />
 
       {/* Resume Modal */}
       {showResumeModal && (

@@ -9,7 +9,7 @@ import {
   HomeIcon,
   PhoneIcon,
   UserIcon,
-  BookOpenIcon,
+  FolderOpenIcon,
   AcademicCapIcon,
   WrenchScrewdriverIcon,
   BriefcaseIcon,
@@ -35,9 +35,9 @@ const menu = [
     path: "/experience",
   },
   {
-    icon: <BookOpenIcon className="w-6 h-6" />,
-    label: "Portfolio",
-    path: "/portfolio",
+    icon: <FolderOpenIcon className="w-6 h-6" />,
+    label: "Projects",
+    path: "/projects",
   },
   {
     icon: <TrophyIcon className="w-6 h-6" />,
@@ -61,7 +61,7 @@ const mobileMenu = [
   { icon: <HomeIcon className="w-6 h-6" />, label: "Home", path: "/" },
   { icon: <UserIcon className="w-6 h-6" />, label: "About", path: "/about" },
   {
-    icon: <BookOpenIcon className="w-6 h-6" />,
+    icon: <FolderOpenIcon className="w-6 h-6" />,
     label: "Projects",
     path: "/projects",
   },
