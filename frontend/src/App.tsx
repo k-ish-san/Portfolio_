@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import About from "./pages/About";
 import EducationTimeline from "./pages/Education/EducationTimeline";
 import Skills from "./pages/Skills/Skills";
+import Projects from "./pages/Projects/Projects";
 // ...other imports
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
             <Route path="/" element={<About />} />
             <Route path="/education" element={<EducationTimeline />} />
             <Route path="/skills" element={<Skills />} />
-
+            <Route path="/projects" element={<Projects />} />
             {/* ...other routes */}
           </Routes>
         </main>

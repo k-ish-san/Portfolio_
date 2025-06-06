@@ -133,45 +133,48 @@ const categories = ["All", "Web development", "IoT"];
 
 
 
-const Projects: React.FC = () =>
-{
-    
+const Projects: React.FC = () => {
   const [filter, setFilter] = useState("All");
   const filteredProjects =
     filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-   <Card title="Projects">
-      <div className="flex items-center gap-4 mb-6">
-        <h1 className="text-3xl font-bold font-mono dark:text-white light:text-black">
-          Projects
-        </h1>
-        <span className="bg-[#3aa5fd] rounded-sm text-white px-2 border-2 border-indigo-200">
-          {filteredProjects.length}
-        </span>
+    <Card title="Projects">
+      <div className="flex flex-col">
+        {/* Sticky category buttons */}
+        <div className="sticky top-0 bg-blue-100 dark:bg-gray-800 z-10 p-2 border-b border-gray-300 dark:border-gray-600">
+          <div className="flex gap-2 mb-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                className={`px-4 py-2 rounded-sm border ${
+                  filter === cat
+                    ? "bg-[#3aa5fd] text-white border-[#3aa5fd]"
+                    : "bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-200 border-[#3aa5fd]"
+                } font-semibold transition`}
+                onClick={() => setFilter(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+            <span className="bg-[#3aa5fd] rounded-sm pt-2 text-white px-2 border-2 border-indigo-200">
+              {filteredProjects.length}
+            </span>
+          </div>
+        </div>
+        {/* Scrollable projects grid */}
+        <div
+          className="overflow-y-auto max-h-[calc(100vh-200px)]"
+          style={{ scrollbarWidth: "none" }}
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 p-2">
+            {filteredProjects.map((project, idx) => (
+              <ProjectCard key={project.title + idx} {...project} />
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="flex gap-2 mb-8">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            className={`px-4 py-2 rounded-sm border ${
-              filter === cat
-                ? "bg-[#3aa5fd] text-white border-[#3aa5fd]"
-                : "bg-white text-gray-500 border-[#3aa5fd]"
-            } font-semibold transition`}
-            onClick={() => setFilter(cat)}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {filteredProjects.map((project, idx) => (
-          <ProjectCard key={project.title + idx} {...project} />
-        ))}
-      </div>
-      
-      </Card>
+    </Card>
   );
 };
 
