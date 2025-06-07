@@ -95,7 +95,7 @@ export function Card({
       </div>
       {/* Card body */}
       <div
-        className="p-4 overflow-y-auto"
+        className="p-4 overflow-y-auto sm:max-w-[50] md:max-w-[200]"
         style={{
           height: "calc(100% - 56px)",
           scrollbarWidth: "none",
