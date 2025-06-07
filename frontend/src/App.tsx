@@ -8,6 +8,7 @@ import EducationTimeline from "./pages/Education/EducationTimeline";
 import Skills from "./pages/Skills/Skills";
 import Projects from "./pages/Projects/Projects";
 import Updates from "./pages/Updates/Updates";
+import Contact from "./pages/Contact/Contact";
 // ...other imports
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/updates" element={<Updates />} />
+            <Route path="/contact" element={<Contact />} />
             {/* ...other routes */}
           </Routes>
         </main>

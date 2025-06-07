@@ -16,7 +16,7 @@ interface CardProps {
 export function Card({
   title = "My Card",
   children,
-  className = "",
+  className = "sm",
   maxWidth = "1400px",
   defaultHeight = "750px",
   fullScreenButton = {
@@ -95,7 +95,7 @@ export function Card({
       </div>
       {/* Card body */}
       <div
-        className="p-4 overflow-y-auto sm:max-w-[50] md:max-w-[200]"
+        className="p-4 overflow-y-auto w-full"
         style={{
           height: "calc(100% - 56px)",
           scrollbarWidth: "none",
