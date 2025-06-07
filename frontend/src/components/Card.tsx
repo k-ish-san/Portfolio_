@@ -79,7 +79,10 @@ export function Card({
     >
       {/* Card header */}
       <div className="flex justify-between items-center p-4 border-b border-gray-600 border-l-8 border-l-[#3aa5fd]  dark:border-l-[#3aa5fd]">
-        <h3 className="text-3xl font-semibold font-orbitron text-gray-900 dark:text-white">
+        <h3
+          className="text-3xl font-semibold font-orbitron text-gray-900 dark:text-white"
+          style={{ letterSpacing: "0.1em" }}
+        >
           {title}
         </h3>
         <button
