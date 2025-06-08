@@ -3,51 +3,65 @@
 import EducationItem from "./EducationItem";
 import type { EducationItemProps } from "./EducationItem";
 import { Card } from "../../components/Card";
-
+import logo1 from "../../assets/gcekLogo.png";
+import logo2 from "../../assets/NBemsLogo.png";
 
 const educationData: EducationItemProps[] = [
   {
-    degree: "PhD in Computer Science",
-    institution: "Harvard University",
-    location: "Massachusetts – US",
-    logo: "/harvard-logo.png", // Replace with your asset path
-    start: "Sep 2022",
-    end: "Jun 2025",
+    degree: "10th Grade",
+    institution: "Nithyananda Bhavan English Medium School",
+    location: "",
+    logo: "/school-logo.png", // Replace with your actual logo path
+    start: "2016",
+    end: "2018",
     highlights: [
-      "Currently pursuing a PhD with a focus on deep learning and its real-world applications, particularly in:",
-      "Computer Vision",
-      "Innovative AI research",
-      "Developing novel algorithms for image recognition",
+      "Completed my schooling with a focus on science and mathematics",
+      "Laid the foundation for my interest in technology",
+      "CBSE curriculum",
     ],
-    tags: ["deep learning", "computer vision", "ai research", "algorithms"],
+    tags: ["science", "mathematics", "cbse"],
   },
   {
-    degree: "Master's in Artificial Intelligence",
-    institution: "University of Paris",
-    location: "France",
-    logo: "/paris-logo.png", // Replace with your asset path
-    start: "Sep 2020",
-    end: "Jun 2022",
+    degree: "12th Grade",
+    institution: "Nithyananda Bhavan English Medium School",
+    location: "",
+    logo: "/school-logo.png", // Replace with your actual logo path
+    start: "2018",
+    end: "2020",
     highlights: [
-      "Completed a comprehensive Master's program focused on cutting-edge AI topics, including:",
-      "Machine Learning",
-      "Natural Language Processing (NLP)",
-      "Neural Networks",
+      "Completed my schooling with a focus on computer science and mathematics",
+      "Laid the foundation for my interest in technology",
+      "CBSE curriculum",
+      "Scored 94.2% in final exams",
     ],
-    tags: ["neural networks", "machine learning"],
+    tags: ["computer science", "mathematics", "cbse"],
+  },
+  {
+    degree: "B.Tech in Electronics and Communication Engineering",
+    institution: "Government College of Engineering Kannur",
+    location: "",
+    logo: "/college-logo.png", // Replace with your actual logo path
+    start: "2020",
+    end: "2024",
+    highlights: [
+      "Pursuing a Bachelor's degree in Electronics and Communication Engineering",
+      "Honing skills in both hardware and software development",
+      "Current CGPA: 7.58",
+      "Key coursework: Digital Electronics, Communication Systems, Microprocessors",
+    ],
+    tags: [
+      "electronics",
+      "communication",
+      "engineering",
+      "hardware",
+      "software",
+    ],
   },
 ];
 
 export default function EducationTimeline() {
   return (
-    <Card
-    title="About Me"
-   
-  >
-    <section className="px-8 py-10">
-      <h2 className="text-4xl font-bold text-neon-green mb-10 font-orbitron">
-        <span className="text-white">Education</span> Background
-      </h2>
+    <Card title="Education">
       <div className="relative">
         {/* Vertical timeline line */}
         <div className="absolute left-10 top-0 bottom-0 w-1 bg-gray-700 rounded-full z-0" />
@@ -62,7 +76,6 @@ export default function EducationTimeline() {
           ))}
         </div>
       </div>
-      </section>
-      </Card>
+    </Card>
   );
 }

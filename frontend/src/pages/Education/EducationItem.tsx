@@ -1,6 +1,5 @@
 // src/components/EducationItem.tsx
 
-
 export interface EducationItemProps {
   degree: string;
   institution: string;
@@ -12,6 +11,7 @@ export interface EducationItemProps {
   tags: string[];
   isFirst?: boolean;
   isLast?: boolean;
+  score?: string; // Added new optional prop
 }
 
 export default function EducationItem({
@@ -25,7 +25,12 @@ export default function EducationItem({
   tags,
   isFirst = false,
   isLast = false,
+  score = "", // Default empty string
 }: EducationItemProps) {
+  const isSchoolEducation = degree.includes("Grade");
+  const isCollegeEducation =
+    degree.includes("B.Tech") || degree.includes("Bachelor");
+
   return (
     <div className="flex relative z-10">
       {/* Timeline dot and logo */}
@@ -43,31 +48,37 @@ export default function EducationItem({
         </div>
         {!isLast && <div className="flex-1 w-1 bg-gray-700 mt-1" />}
       </div>
+
       {/* Card */}
       <div className="bg-sidebar-dark rounded-xl shadow-lg flex-1 ml-6 p-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
           <div>
             <h3 className="text-2xl font-bold text-neon-green font-orbitron">
-              {degree.includes("Master") ? (
+              {isSchoolEducation ? (
+                <span className="text-white">{degree}</span>
+              ) : isCollegeEducation ? (
                 <span>
-                  <span className="text-neon-green">Master&apos;s</span>
+                  <span className="text-neon-green">
+                    {degree.split(" in ")[0]}
+                  </span>
                   <span className="text-white">
                     {" "}
-                    in Artificial Intelligence
+                    in {degree.split(" in ")[1]}
                   </span>
                 </span>
               ) : (
-                <span>
-                  <span className="text-neon-green">PhD</span>
-                  <span className="text-white"> in Computer Science</span>
-                </span>
+                <span className="text-white">{degree}</span>
               )}
             </h3>
             <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
               <i className="fa-solid fa-university"></i>
               <span>{institution}</span>
-              <i className="fa-solid fa-location-dot ml-3"></i>
-              <span>{location}</span>
+              {location && (
+                <>
+                  <i className="fa-solid fa-location-dot ml-3"></i>
+                  <span>{location}</span>
+                </>
+              )}
             </div>
           </div>
           <div className="flex items-center gap-2 text-gray-300 bg-gray-900 px-4 py-1 rounded-lg mt-3 md:mt-0">
@@ -77,6 +88,14 @@ export default function EducationItem({
             <span className="font-bold text-white">{end}</span>
           </div>
         </div>
+
+        {/* Score display for school/college */}
+        {score && (
+          <div className="mb-3">
+            <span className="text-gray-300 font-medium">{score}</span>
+          </div>
+        )}
+
         <ul className="text-gray-200 mt-3 mb-3 list-disc list-inside">
           {highlights.map((line, idx) => (
             <li key={idx} className={idx === 0 ? "mb-1 font-medium" : ""}>
@@ -84,6 +103,7 @@ export default function EducationItem({
             </li>
           ))}
         </ul>
+
         <div className="flex flex-wrap gap-2 mt-3">
           {tags.map((tag) => (
             <span
