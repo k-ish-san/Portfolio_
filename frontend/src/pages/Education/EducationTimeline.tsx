@@ -4,7 +4,7 @@ import EducationItem from "./EducationItem";
 import type { EducationItemProps } from "./EducationItem";
 import { Card } from "../../components/Card";
 import logo1 from "../../assets/gcekLogo.png";
-import logo2 from "../../assets/NBemsLogo.png";
+import logo2 from "../../assets/NbemsLogo.png";
 
 const educationData: EducationItemProps[] = [
   {
