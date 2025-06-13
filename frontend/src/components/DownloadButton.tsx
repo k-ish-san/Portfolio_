@@ -1,6 +1,7 @@
 import { EyeIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { toast } from "sonner";
 import React from "react";
+import { Tooltip } from "react-tooltip";
 
 const DownloadButton: React.FC = () => {
   const handleClick = () => {
@@ -57,6 +58,7 @@ const DownloadButton: React.FC = () => {
   };
 
   return (
+    <><Tooltip id="tooltip" />
     <button
       onClick={handleClick}
       className="group relative p-3 rounded-xl transition flex justify-center items-center w-12 h-12 overflow-hidden shadow-lg shadow-gray-900"
@@ -64,8 +66,13 @@ const DownloadButton: React.FC = () => {
       data-tooltip-content="View Resume"
       data-tooltip-place="top"
     >
-      <EyeIcon className="h-8 w-8 text-white group-hover:text-[#3aa5fd] transition-colors" />
-    </button>
+      <EyeIcon className="h-8 w-8 text-white group-hover:text-[#3aa5fd] transition-colors"
+        data-tooltip-id="tooltip"
+        data-tooltip-content="View Resume"
+        data-tooltip-place="top"
+      />
+      </button>
+      </>
   );
 };
 
