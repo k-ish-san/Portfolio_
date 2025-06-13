@@ -7,7 +7,7 @@ import About from "./pages/About/About";
 import EducationTimeline from "./pages/Education/EducationTimeline";
 import Skills from "./pages/Skills/Skills";
 import Projects from "./pages/Projects/Projects";
-import Updates from "./pages/Updates/Updates";
+import Stats from "./pages/Stats/Stats";
 import Contact from "./pages/Contact/Contact";
 // ...other imports
 
@@ -24,7 +24,7 @@ function App() {
               <Route path="/education" element={<EducationTimeline />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/updates" element={<Updates />} />
+              <Route path="/stats" element={<Stats />} />
               <Route path="/contact" element={<Contact />} />
               {/* ...other routes */}
             </Routes>

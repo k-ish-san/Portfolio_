@@ -46,8 +46,8 @@ const menu = [
   },
   {
     icon: <PencilSquareIcon className="w-6 h-6" />,
-    label: "Updates",
-    path: "/updates",
+    label: "Stats",
+    path: "/stats",
   },
   {
     icon: <PhoneIcon className="w-6 h-6" />,

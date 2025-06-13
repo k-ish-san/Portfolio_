@@ -1,6 +1,6 @@
 import { Card } from "../../components/Card";
 import GitHubCalendar from "./GithubCalendar";
-const Updates = () => {
+const Stats = () => {
   return (
     
       <Card title="Updates">
@@ -10,4 +10,4 @@ const Updates = () => {
   );
 };
 
-export default Updates;
+export default Stats;
