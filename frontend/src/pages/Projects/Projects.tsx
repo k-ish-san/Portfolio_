@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import {Card} from "../../components/Card";
-
+import Tooltip from "../../components/Tooltip";
 import {
   SiReact,
   SiFirebase,
@@ -154,11 +154,16 @@ const Projects: React.FC = () => {
                 } font-semibold transition`}
                 onClick={() => setFilter(cat)}
               >
-                {cat}
+                <Tooltip text={`Filter by: ${cat}`}>
+                  {cat}
+                </Tooltip>
               </button>
             ))}
+
             <span className="bg-[#3aa5fd] rounded-sm pt-2 text-white px-2 border-2 border-indigo-200">
-              {filteredProjects.length}
+              <Tooltip text="Number of Projects">
+                {filteredProjects.length}
+              </Tooltip>
             </span>
           </div>
         </div>

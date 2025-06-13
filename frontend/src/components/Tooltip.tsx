@@ -9,11 +9,11 @@ interface TooltipProps {
 
 const Tooltip: React.FC<TooltipProps> = ({
   text,
-  position = "top",
+  position = "floating",
   children,
 }) => {
   const baseClasses =
-    "absolute z-10 hidden group-hover:block px-2 py-1 text-sm text-white bg-black rounded whitespace-nowrap";
+    "absolute  hidden group-hover:block px-2 py-1 text-sm text-gray-100 bg-gray-700 rounded whitespace-nowrap";
 
   const positionClasses = {
     top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
@@ -25,7 +25,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   return (
     <div className="relative group inline-block">
       {children}
-      <div className={`${baseClasses} ${positionClasses[position]}`}>
+      <div className={`${baseClasses} ${positionClasses[position as keyof typeof positionClasses]}`}>
         {text}
       </div>
     </div>

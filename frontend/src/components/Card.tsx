@@ -3,6 +3,7 @@ import {
   ArrowsPointingInIcon,
   ArrowsPointingOutIcon,
 } from "@heroicons/react/24/solid";
+import Tooltip from "./Tooltip";
 
 interface CardProps {
   title?: string;
@@ -79,19 +80,24 @@ export function Card({
     >
       {/* Card header */}
       <div className="flex justify-between items-center p-4 border-b border-gray-600 border-l-8 border-l-[#3aa5fd]  dark:border-l-[#3aa5fd]">
+        <Tooltip text={`Title: ${title}`} position="right">
         <h3
           className="text-3xl font-semibold font-orbitron text-gray-900 dark:text-white"
           style={{ letterSpacing: "0.1em" }}
         >
+
           {title}
-        </h3>
+          </h3>
+        </Tooltip>
+        <Tooltip text={isFullScreen ? "Exit Full Screen" : "Enter Full Screen"} position="left">
         <button
           onClick={toggleFullScreen}
           className="p-2 w-10 h-10 hover:text-[#3aa5fd] dark:text-white"
           aria-label={isFullScreen ? "Exit full screen" : "Enter full screen"}
         >
           {isFullScreen ? fullScreenButton.exit : fullScreenButton.enter}
-        </button>
+          </button>
+        </Tooltip>
       </div>
       {/* Card body */}
       <div

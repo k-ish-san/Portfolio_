@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import type { IconType } from "react-icons";
-
+import Tooltip from "../../components/Tooltip";
 interface ProjectCardProps {
   image: string;
   title: string;
@@ -36,14 +36,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       ))}
     </div>
     <div className="mt-auto flex gap-4 font-semibold">
-      <a
-        href={github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 dark:text-[#3aa5fd] hover:underline"
-      >
-        <FaGithub /> GitHub
-      </a>
+      <Tooltip text="GitHub Repository">
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 dark:text-[#3aa5fd] hover:underline"
+        >
+          <FaGithub /> GitHub
+        </a>{" "}
+      </Tooltip>
+      <Tooltip text="Live Demo Link">
       <a
         href={live}
         target="_blank"
@@ -51,7 +54,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         className="flex items-center gap-1 dark:text-[#3aa5fd] hover:underline"
       >
         <FaExternalLinkAlt /> Live
-      </a>
+        </a>
+        </Tooltip>
     </div>
   </div>
 );
