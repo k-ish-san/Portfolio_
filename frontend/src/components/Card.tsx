@@ -17,7 +17,7 @@ interface CardProps {
 export function Card({
   title,
   children,
-  className = "sm",
+  className = "",
   maxWidth = "90vw",    //1400px
   defaultHeight = "90vh",  //750px
   fullScreenButton = {
