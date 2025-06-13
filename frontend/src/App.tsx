@@ -6,7 +6,9 @@ import { Toaster } from "sonner";
 import About from "./pages/About/About";
 import EducationTimeline from "./pages/Education/EducationTimeline";
 import Skills from "./pages/Skills/Skills";
+import Experience from "./pages/Experience/Experience";
 import Projects from "./pages/Projects/Projects";
+import Achievements from "./pages/Achievements/Achievements";
 import Stats from "./pages/Stats/Stats";
 import Contact from "./pages/Contact/Contact";
 // ...other imports
@@ -23,7 +25,9 @@ function App() {
               <Route path="/" element={<About />} />
               <Route path="/education" element={<EducationTimeline />} />
               <Route path="/skills" element={<Skills />} />
+              <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/achievements" element={<Achievements />} />
               <Route path="/stats" element={<Stats />} />
               <Route path="/contact" element={<Contact />} />
               {/* ...other routes */}

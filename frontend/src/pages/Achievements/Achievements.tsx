@@ -1,12 +1,12 @@
 import { Card } from "../../components/Card";
-const Experience = () =>
+const Achievements = () =>
 {
   return (
-    <Card title="Experience">
+    <Card title="Achievements">
       <p>Coming soon!</p>
     </Card>
   )
   ;
 };
 
-export default Experience;
+export default Achievements;

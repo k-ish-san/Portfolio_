@@ -6,7 +6,7 @@ interface SkillGridProps {
 }
 
 const SkillGrid: React.FC<SkillGridProps> = ({ skills }) => (
-  <div className="px-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-8 justify-items-center">
+  <div className="px-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-8 gap-8 justify-items-center">
     {skills.map((skill, idx) => (
       <SkillCard
         key={skill.label + idx}
