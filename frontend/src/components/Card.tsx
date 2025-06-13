@@ -15,11 +15,11 @@ interface CardProps {
 }
 
 export function Card({
-  title = "My Card",
+  title,
   children,
   className = "sm",
-  maxWidth = "1400px",
-  defaultHeight = "750px",
+  maxWidth = "90vw",    //1400px
+  defaultHeight = "90vh",  //750px
   fullScreenButton = {
     enter: <ArrowsPointingOutIcon />,
     exit: <ArrowsPointingInIcon />,
