@@ -16,7 +16,7 @@ const DownloadButton: React.FC = () => {
 
         {/* Icon + Title */}
         <div className="flex items-center gap-2 mb-3">
-          <EyeIcon className="w-6 h-6 text-[#3aa5fd]" />
+          <EyeIcon className="w-8 h-8 text-[#3aa5fd]" />
           <h3 className="text-lg font-semibold">Open link?</h3>
         </div>
 
