@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import { Tooltip } from "react-tooltip";
+import Tooltip from "./Tooltip";
 const ThemeToggle = () => {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     return (localStorage.getItem("theme") as "light" | "dark") || "light";
@@ -23,22 +23,15 @@ const ThemeToggle = () => {
         className="w-12 h-12  flex items-center justify-center"
       >
         {theme === "dark" ? (
-          <SunIcon
-            className="h-8 w-8 text-amber-400 hover:text-[#3aa5fd]"
-            data-tooltip-id="theme-tooltip"
-            data-tooltip-content="Light Mode"
-            data-tooltip-place="top"
-          />
+          <Tooltip text="Light Mode" position="top">
+            <SunIcon className="h-8 w-8 text-amber-400 hover:text-[#3aa5fd]" />
+          </Tooltip>
         ) : (
-          <MoonIcon
-            className="h-7 w-8 text-indigo-200 hover:text-[#3aa5fd]"
-            data-tooltip-id="theme-tooltip"
-            data-tooltip-content="Dark Mode"
-            data-tooltip-place="top"
-          />
+          <Tooltip text="Dark Mode" position="top">
+            <MoonIcon className="h-7 w-8 text-indigo-200 hover:text-[#3aa5fd]" />
+          </Tooltip>
         )}
       </button>
-      <Tooltip id="theme-tooltip" />
     </div>
   );
 };
