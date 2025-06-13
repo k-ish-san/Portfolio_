@@ -58,11 +58,16 @@ const tools = [
 
 const Skills: React.FC = () => {
     return (
-        <Card  title="Skills">
+      <Card title="Skills">
+        <h2 className="text-2xl font-semibold dark:text-white my-4">
+          <span className="text-[#3aa5fd]">Technical</span> Skills
+        </h2>
         <SkillGrid skills={skills} />
-
+        <h2 className="text-2xl font-semibold dark:text-white my-4">
+          <span className="text-[#3aa5fd]">Tools</span> I Use
+        </h2>
         <SkillGrid skills={tools} />
-        </Card>
+      </Card>
     );
 };
 
