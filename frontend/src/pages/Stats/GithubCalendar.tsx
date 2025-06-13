@@ -3,7 +3,7 @@ import { showNotification } from "../../components/NotificationCard";
 const GithubCalendar = () => {
   return (
     <div className="w-full flex justify-center bg-zinc-950 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-12 w-full max-w-7xl px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 w-full max-w-7xl px-4">
         {/* 🧠 Daily.dev Card */}
         <div className="flex flex-col items-center dark:text-white">
           <div className="text-2xl font-bold mb-4">Daily.dev Card</div>
