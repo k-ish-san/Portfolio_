@@ -1,25 +1,28 @@
-
 import GitHubCalendar from "react-github-calendar";
-
+import { showNotification } from "../../components/NotificationCard";
 const GithubCalendar = () => {
   return (
     <div className="w-full flex justify-center bg-zinc-950 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 w-full max-w-7xl px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-12 w-full max-w-7xl px-4">
         {/* 🧠 Daily.dev Card */}
         <div className="flex flex-col items-center dark:text-white">
           <div className="text-2xl font-bold mb-4">Daily.dev Card</div>
-          <a
-            href="https://app.daily.dev/samrudhkishsanpm"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => {
+              showNotification(
+                "https://app.daily.dev/samrudhkishsanpm",
+                "Visit Samrudh Kishsan P M's Dev Card"
+              );
+            }}
           >
-            <img
-              src="https://api.daily.dev/devcards/v2/dcrCY9nLXBGvBvyU9y6SU.png?type=default&r=0xn"
-              width="356"
-              alt="Samrudh Kishsan P M's Dev Card"
-              className="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
-            />
-          </a>
+            <a>
+              <img
+                src="https://api.daily.dev/devcards/v2/dcrCY9nLXBGvBvyU9y6SU.png?type=wide&r=yzv"
+                width="652"
+                alt="Samrudh Kishsan P M's Dev Card"
+              />
+            </a>
+          </button>
         </div>
 
         {/* 🧮 LeetCode Stats */}
@@ -64,7 +67,9 @@ const GithubCalendar = () => {
 
         {/* 📆 GitHub Calendar */}
         <div className="flex flex-col items-center font-sans dark:text-white col-span-full">
-          <div className="text-2xl font-orbitron font-bold mb-4">GitHub Calendar</div>
+          <div className="text-2xl font-orbitron font-bold mb-4">
+            GitHub Calendar
+          </div>
           <GitHubCalendar
             username="k-ish-san"
             blockSize={14}

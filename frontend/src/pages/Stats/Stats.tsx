@@ -3,7 +3,7 @@ import GitHubCalendar from "./GithubCalendar";
 const Stats = () => {
   return (
     
-      <Card title="Updates">
+      <Card title="Stats">
           <GitHubCalendar />
       </Card>
     
