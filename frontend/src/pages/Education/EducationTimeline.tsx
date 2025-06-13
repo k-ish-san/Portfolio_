@@ -21,11 +21,13 @@ const educationData: EducationItemProps[] = [
       "Key coursework: Digital Electronics, Communication Systems, Microprocessors",
     ],
     tags: [
-      "electronics",
+      "Electronics",
       "IoT",
       "Wireless communication",
-      "Microcontrollers",
+      "Micro-controllers",
       "Embedded systems",
+      "Python for Engineers", 
+      "Machine Learning",
     ],
   },
   {
@@ -41,7 +43,7 @@ const educationData: EducationItemProps[] = [
       "CBSE curriculum",
       "Scored 94.2% in final exams",
     ],
-    tags: ["computer science", "mathematics", "cbse"],
+    tags: ["Computer Science", "Mathematics", "Programming", "C++", "MySQL"],
   },
   {
     degree: "10th Grade",
@@ -55,7 +57,7 @@ const educationData: EducationItemProps[] = [
       "Laid the foundation for my interest in technology",
       "CBSE curriculum",
     ],
-    tags: ["science", "mathematics", "cbse"],
+    tags: ["Mathematics", "Economics", "Physics", "Chemistry"],
   },
   
 ];
