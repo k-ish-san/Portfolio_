@@ -18,7 +18,7 @@ export function Card({
   title,
   children,
   className = "",
-  maxWidth = "90vw",    //1400px
+  maxWidth = "100vw",    //1400px
   defaultHeight = "90vh",  //750px
   fullScreenButton = {
     enter: <ArrowsPointingOutIcon />,
