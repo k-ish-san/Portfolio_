@@ -2,6 +2,8 @@
 import { Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import { Toaster } from "sonner";
+import Dither from "./components/Dither";
+
 // Pages
 import About from "./pages/About/About";
 import EducationTimeline from "./pages/Education/EducationTimeline";
@@ -18,6 +20,21 @@ function App() {
     <>
       <Toaster position="top-center" />
       <Router>
+        <div style={{
+          width: "100%", height: "100%", position: "absolute", zIndex: -1
+        }}>
+          <Dither
+            waveColor={[0, 0, 1]}
+            disableAnimation={false}
+            enableMouseInteraction={true}
+            mouseRadius={0.3}
+            colorNum={4}
+            waveAmplitude={0.3}
+            waveFrequency={3}
+            waveSpeed={0.1}
+          />
+        </div>
+
         <div className="flex min-h-screen bg-main-dark">
           <Sidebar />
           <main className="flex-1 bg-main-dark min-h-screen p-10">
