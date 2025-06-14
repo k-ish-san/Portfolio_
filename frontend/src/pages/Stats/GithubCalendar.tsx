@@ -2,10 +2,10 @@ import GitHubCalendar from "react-github-calendar";
 import { showNotification } from "../../components/NotificationCard";
 const GithubCalendar = () => {
   return (
-    <div className="w-full flex justify-center bg-zinc-950 py-12">
+    <div className="w-full flex justify-center  py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 w-full max-w-7xl px-4">
         {/* 🧠 Daily.dev Card */}
-        <div className="flex flex-col items-center dark:text-white">
+        <div className="flex flex-col items-center min-w-[300px] text-[#3aa5fd]">
           <div className="text-2xl font-bold mb-4">Daily.dev Card</div>
           <button
             onClick={() => {
@@ -26,7 +26,7 @@ const GithubCalendar = () => {
         </div>
 
         {/* 🧮 LeetCode Stats */}
-        <div className="flex flex-col items-center dark:text-white">
+        <div className="flex flex-col items-center text-[#3aa5fd]">
           <div className="text-2xl font-bold mb-4">LeetCode Stats</div>
           <img
             src="https://leetcard.jacoblin.cool/k-ish-san?theme=dark"
@@ -36,7 +36,7 @@ const GithubCalendar = () => {
         </div>
 
         {/* ⏱️ WakaTime Summary Stats */}
-        <div className="flex flex-col items-center dark:text-white">
+        <div className="flex flex-col items-center text-[#3aa5fd]">
           <div className="text-2xl font-bold mb-4">WakaTime (Summary)</div>
           <img
             src="https://github-readme-stats.vercel.app/api/wakatime?username=k_ish_san&theme=dark"
@@ -46,7 +46,7 @@ const GithubCalendar = () => {
         </div>
 
         {/* ⏳ WakaTime Language Stats */}
-        <div className="flex flex-col items-center dark:text-white">
+        <div className="flex flex-col items-center text-[#3aa5fd]">
           <div className="text-2xl font-bold mb-4">Languages Used</div>
           <img
             src="https://github-readme-stats.vercel.app/api/top-langs/?username=k-ish-san&layout=compact&theme=dark"
@@ -56,7 +56,7 @@ const GithubCalendar = () => {
         </div>
 
         {/* 🕒 WakaTime Weekly Activity */}
-        <div className="flex flex-col items-center dark:text-white">
+        <div className="flex flex-col items-center text-[#3aa5fd]">
           <div className="text-2xl font-bold mb-4">WakaTime Weekly</div>
           <img
             src="https://github-readme-streak-stats.herokuapp.com/?user=k-ish-san&theme=dark"
@@ -66,10 +66,11 @@ const GithubCalendar = () => {
         </div>
 
         {/* 📆 GitHub Calendar */}
-        <div className="flex flex-col items-center font-sans dark:text-white col-span-full">
+        <div className="flex flex-col items-center font-sans  text-[#3aa5fd] col-span-full">
           <div className="text-2xl font-orbitron font-bold mb-4">
             GitHub Calendar
           </div>
+
           <GitHubCalendar
             username="k-ish-san"
             blockSize={14}

@@ -132,7 +132,7 @@ export default function EducationItem({
               )}
             </div>
           </div>
-          <div className="flex items-center gap-2 text-gray-300 bg-gray-700 px-4 py-1 rounded-lg mt-3 md:mt-0 hover:bg-[#3aa5fd] hover:bg-opacity-10 transition-all duration-300">
+          <div className="flex items-center gap-2 text-gray-300 bg-gray-700 px-4 py-1 rounded-lg mt-3 md:mt-0  hover:bg-opacity-10 transition-all duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
