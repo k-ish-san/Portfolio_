@@ -37,7 +37,7 @@ function App() {
 
         <div className="flex ">
           <Sidebar />
-          <main className="flex-1  md:px-12">
+          <main className="flex-1  md:px-8">
             <Routes>
               <Route path="/" element={<About />} />
               <Route path="/education" element={<EducationTimeline />} />
