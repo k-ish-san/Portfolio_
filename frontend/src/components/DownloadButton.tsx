@@ -9,10 +9,12 @@ const DownloadButton: React.FC = () => {
   return (
     <Tooltip text="View Resume" position="top">
       <button
-        onClick={() => showNotification(resume_link, "Visit Overleaf to view Resume")}
-        className="group relative p-3 rounded-xl transition flex justify-center items-center w-12 h-12 overflow-hidden shadow-lg shadow-gray-900"
+        onClick={() =>
+          showNotification(resume_link, "Visit Overleaf to view Resume")
+        }
+        className=" p-2 flex items-center justify-center "
       >
-        <EyeIcon className="h-8 w-8 text-white group-hover:text-[#3aa5fd] transition-colors" />
+        <EyeIcon className="h-8 w-8  text-gray-400  group-hover:text-[#3aa5fd] transition-colors" />
       </button>
     </Tooltip>
   );

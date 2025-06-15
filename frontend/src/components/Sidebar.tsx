@@ -76,7 +76,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="bg-gray-900 w-72 font-orbitron min-h-screen hidden md:flex flex-col justify-between py-6 px-4">
+      <aside className="bg-gray-900 w-72 font-orbitron h-[100vh] hidden md:flex flex-col justify-between py-auto px-4">
         {/* ...profile section... */}
         <ProfileIntro
           name="Samrudh Kishsan P M"
@@ -105,7 +105,7 @@ export default function Sidebar() {
               to={item.path}
               end={item.path === "/"}
               className={({ isActive }) =>
-                `flex items-center hover:text-[#3aa5fd] gap-4 px-4 py-3 rounded-lg mb-2 cursor-pointer font-medium transition ${
+                `flex items-center hover:text-[#3aa5fd] gap-4 px-4 py-3 rounded-lg  cursor-pointer font-medium transition ${
                   isActive
                     ? "bg-[#3aa5fd] text-black hover:text-black"
                     : "text-gray-500"
@@ -118,7 +118,7 @@ export default function Sidebar() {
           ))}
         </nav>
         {/* ...bottom section (theme toggle, flags, etc.)... */}
-        <div className="flex flex-row justify-center space-x-5.5">
+        <div className="flex flex-row justify-center space-x-5">
           {/* Theme button */}
           <ThemeToggle />
           {/* Download button */}

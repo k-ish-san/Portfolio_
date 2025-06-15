@@ -101,7 +101,7 @@ export function Card({
       </div>
       {/* Card body */}
       <div
-        className="px-4 pb-20 overflow-y-auto w-full"
+        className="px-4 pb-20 overflow-y-auto w-full "
         style={{
           height: isFullScreen ? "100vh" : "88vh",
           scrollbarWidth: "thin",

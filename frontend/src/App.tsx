@@ -35,9 +35,9 @@ function App() {
           />
         </div>
 
-        <div className="flex min-h-screen bg-main-dark">
+        <div className="flex ">
           <Sidebar />
-          <main className="flex-1 bg-main-dark min-h-screen md:px-12">
+          <main className="flex-1  md:px-12">
             <Routes>
               <Route path="/" element={<About />} />
               <Route path="/education" element={<EducationTimeline />} />
