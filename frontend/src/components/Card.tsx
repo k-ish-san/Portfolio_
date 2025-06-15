@@ -19,7 +19,7 @@ export function Card({
   children,
   className = "",
   maxWidth = "100vw",    //1400px
-  defaultHeight = "90vh",  //750px
+  defaultHeight = "100vh",  //750px
   fullScreenButton = {
     enter: <ArrowsPointingOutIcon />,
     exit: <ArrowsPointingInIcon />,
@@ -64,7 +64,7 @@ export function Card({
   return (
     <div
       ref={cardRef}
-      className={`bg-blue-100  font-orbitron dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 m-0 ${className} transform transition-transform duration-300 ease-in-out ${
+      className={`bg-blue-100 font-orbitron dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300  ${className} transform transition-transform duration-300 ease-in-out ${
         isMounted ? "translate-x-0" : "translate-x-full"
       }`}
       style={{
