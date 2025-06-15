@@ -154,14 +154,14 @@ const Projects: React.FC = () => {
                 } font-semibold transition`}
                 onClick={() => setFilter(cat)}
               >
-                <Tooltip text={`Filter by: ${cat}`}>
+                <Tooltip text={`Filter by: ${cat}` } >
                   {cat}
                 </Tooltip>
               </button>
             ))}
 
             <span className="bg-[#3aa5fd] rounded-sm pt-2 text-white px-2 border-2 border-indigo-200">
-              <Tooltip text="Number of Projects">
+              <Tooltip text="Total Projects">
                 {filteredProjects.length}
               </Tooltip>
             </span>

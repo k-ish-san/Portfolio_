@@ -266,7 +266,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Phone</h3>
-                <p className="text-gray-600 text-lg">+91 9562498325</p>
+                <p className="text-gray-600 text-xs">+91 9562498325</p>
               </div>
             </div>
 
@@ -277,7 +277,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">E-mail</h3>
-                <p className="text-gray-600 text-lg">
+                <p className="text-gray-600 text-xs">
                   samrudhkishsanpm@gmail.com
                 </p>
               </div>
@@ -289,8 +289,10 @@ const Contact: React.FC = () => {
                 <AiFillLinkedin className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Linkedin</h3>
-                <p className="text-gray-600 text-lg">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  Linkedin
+                </h3>
+                <p className="text-gray-600 text-xs">
                   https://www.linkedin.com/in/samrudh-k-ish-san-pm
                 </p>
               </div>
@@ -303,7 +305,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Github</h3>
-                <p className="text-gray-600 text-lg">
+                <p className="text-gray-600  text-xs ">
                   https://github.com/k-ish-san
                 </p>
               </div>
@@ -315,8 +317,10 @@ const Contact: React.FC = () => {
                 <AiFillFacebook className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Facebook</h3>
-                <p className="text-gray-600 text-lg">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  Facebook
+                </h3>
+                <p className="text-gray-600 text-xs">
                   https://www.facebook.com/samrudhkishsan
                 </p>
               </div>
@@ -328,8 +332,10 @@ const Contact: React.FC = () => {
                 <AiFillInstagram className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Instagram</h3>
-                <p className="text-gray-600 text-lg">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  Instagram
+                </h3>
+                <p className="text-gray-600 text-xs">
                   https://www.instagram.com/k_ish_san
                 </p>
               </div>
