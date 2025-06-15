@@ -4,7 +4,7 @@ import pc from "../../assets/pc.svg";
 const About: React.FC = () => {
     return (
       <Card title="About Me">
-        <div className="relative grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-6 items-center mb-6">
+        <div className="relative grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-6 items-center mb-6 ">
           <div className="flex justify-center md:justify-start">
             <img
               src={pc}

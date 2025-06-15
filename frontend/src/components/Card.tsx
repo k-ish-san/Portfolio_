@@ -19,7 +19,7 @@ export function Card({
   children,
   className = "",
   maxWidth = "100vw",    //1400px
-  defaultHeight = "100vh",  //750px
+  defaultHeight = "97vh",  //750px
   fullScreenButton = {
     enter: <ArrowsPointingOutIcon />,
     exit: <ArrowsPointingInIcon />,
@@ -101,10 +101,10 @@ export function Card({
       </div>
       {/* Card body */}
       <div
-        className="p-4 pb-20 overflow-y-auto w-full"
+        className="px-4 pb-20 overflow-y-auto w-full"
         style={{
-          height: "90vh",
-          scrollbarWidth: "none",
+          height: isFullScreen ? "100vh" : "88vh",
+          scrollbarWidth: "thin",
         }}
       >
         {children}

@@ -141,42 +141,35 @@ const Projects: React.FC = () => {
   return (
     <Card title="Projects">
       <div className="flex flex-col">
-        {/* Sticky category buttons */}
-        <div className="sticky top-0 bg-blue-100 dark:bg-gray-800 z-10 p-2 border-b border-gray-300 dark:border-gray-600">
-          <div className="flex gap-2 mb-2">
+        {/* Sticky Category Buttons */}
+        <div className="sticky top-0 z-10 border-b border-gray-300 dark:border-zinc-700 px-12 py-3 pb-6 light:bg-blue-100 w-full dark:bg-gray-800">
+          <div className="flex flex-wrap gap-2 items-center">
             {categories.map((cat) => (
               <button
                 key={cat}
                 className={`px-4 py-2 rounded-sm border ${
                   filter === cat
                     ? "bg-[#3aa5fd] text-white border-[#3aa5fd]"
-                    : "bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-200 border-[#3aa5fd]"
+                    : "bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-200 border-[#3aa5fd]"
                 } font-semibold transition`}
                 onClick={() => setFilter(cat)}
               >
-                <Tooltip text={`Filter by: ${cat}`}>
-                  {cat}
-                </Tooltip>
+                <Tooltip text={`Filter by: ${cat}`}>{cat}</Tooltip>
               </button>
             ))}
-
-            <span className="bg-[#3aa5fd] rounded-sm pt-2 text-white px-2 border-2 border-indigo-200">
+            <span className="bg-[#3aa5fd] rounded-sm py-2 px-3 text-white border-2 border-indigo-200">
               <Tooltip text="Number of Projects">
                 {filteredProjects.length}
               </Tooltip>
             </span>
           </div>
         </div>
-        {/* Scrollable projects grid */}
-        <div
-          className="overflow-y-auto max-h-[90vh]"
-          style={{ scrollbarWidth: "none" }}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 p-2">
-            {filteredProjects.map((project, idx) => (
-              <ProjectCard key={project.title + idx} {...project} />
-            ))}
-          </div>
+
+        {/* Project Grid - no scroll here */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4 px-2">
+          {filteredProjects.map((project, idx) => (
+            <ProjectCard key={project.title + idx} {...project} />
+          ))}
         </div>
       </div>
     </Card>
