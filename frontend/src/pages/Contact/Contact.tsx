@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
         {/* Send Message Section */}
         <div className="mb-16">
           <div className="flex items-center mb-8">
-            <h2 className="text-3xl font-bold light:text-gray-800 dark:text-white">
+            <h2 className="text-3xl font-bold light:text-gray-800 dark:text-white pt-2">
               Send me a <span className="text-[#3aa5fd]">message</span>
             </h2>
           </div>

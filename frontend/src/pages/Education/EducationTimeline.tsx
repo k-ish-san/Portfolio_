@@ -65,7 +65,7 @@ const educationData: EducationItemProps[] = [
 export default function EducationTimeline() {
   return (
     <Card title="Education">
-      <div className="relative">
+      <div className="relative pt-2">
         {/* Vertical timeline line */}
         
         <div className="flex flex-col gap-12">
