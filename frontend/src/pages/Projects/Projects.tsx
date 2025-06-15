@@ -140,9 +140,9 @@ const Projects: React.FC = () => {
 
   return (
     <Card title="Projects">
-      <div className="flex flex-col">
+     
         {/* Sticky category buttons */}
-        <div className="sticky top-0 bg-blue-100 dark:bg-gray-800 z-10 p-2 border-b border-gray-300 dark:border-gray-600">
+        <div className="absolute top-18 w-full bg-blue-100 dark:bg-gray-800 z-10 py-4  border-y border-gray-300 dark:border-gray-600 ">
           <div className="flex gap-2 mb-2">
             {categories.map((cat) => (
               <button
@@ -169,7 +169,7 @@ const Projects: React.FC = () => {
         </div>
         {/* Scrollable projects grid */}
         <div
-          className="overflow-y-auto max-h-[calc(100vh-200px)]"
+          className="overflow-y-auto max-h-[90vh]"
           style={{ scrollbarWidth: "none" }}
         >
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 p-2">
@@ -178,7 +178,7 @@ const Projects: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
+  
     </Card>
   );
 };
