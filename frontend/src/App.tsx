@@ -21,7 +21,7 @@ function App() {
       <Toaster position="top-center" />
       <Router>
         <div style={{
-          width: "100%", height: "100%", position: "absolute", zIndex: -1
+          width: "100%", height: "100%", position: "absolute", zIndex: 0
         }}>
           <Dither
             waveColor={[0, 0, 1]}
@@ -31,7 +31,7 @@ function App() {
             colorNum={4}
             waveAmplitude={0.3}
             waveFrequency={3}
-            waveSpeed={0.1}
+            waveSpeed={0.2}
           />
         </div>
 
