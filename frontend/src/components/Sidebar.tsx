@@ -76,7 +76,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="bg-gray-900 w-72 font-orbitron h-[100vh] hidden md:flex flex-col justify-between py-2 px-4">
+      <aside className="bg-gray-900 w-72 font-orbitron h-[100vh] hidden md:flex flex-col justify-between py-2 px-4 z-10">
         {/* ...profile section... */}
         <ProfileIntro
           name="Samrudh Kishsan P M"
