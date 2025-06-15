@@ -140,9 +140,9 @@ const Projects: React.FC = () => {
 
   return (
     <Card title="Projects">
-     
+      <div className="flex flex-col">
         {/* Sticky category buttons */}
-        <div className="absolute top-18 w-full bg-blue-100 dark:bg-gray-800 z-10 py-4  border-y border-gray-300 dark:border-gray-600 ">
+        <div className="sticky top-0 bg-blue-100 dark:bg-gray-800 z-10 p-2 border-b border-gray-300 dark:border-gray-600">
           <div className="flex gap-2 mb-2">
             {categories.map((cat) => (
               <button
@@ -154,14 +154,14 @@ const Projects: React.FC = () => {
                 } font-semibold transition`}
                 onClick={() => setFilter(cat)}
               >
-                <Tooltip text={`Filter by: ${cat}` } >
+                <Tooltip text={`Filter by: ${cat}`}>
                   {cat}
                 </Tooltip>
               </button>
             ))}
 
             <span className="bg-[#3aa5fd] rounded-sm pt-2 text-white px-2 border-2 border-indigo-200">
-              <Tooltip text="Total Projects">
+              <Tooltip text="Number of Projects">
                 {filteredProjects.length}
               </Tooltip>
             </span>
@@ -178,7 +178,7 @@ const Projects: React.FC = () => {
             ))}
           </div>
         </div>
-  
+      </div>
     </Card>
   );
 };
