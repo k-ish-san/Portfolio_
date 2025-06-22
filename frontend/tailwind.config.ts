@@ -1,7 +1,12 @@
+// tailwind.config.js
+
+
 export default {
-  // tailwind.config.js
-  content: ["./src/**/*.{js,ts,jsx,tsx,html}"],
-  mode: "jit",
+  content: [
+    "./index.html", // include root
+    "./src/**/*.{js,ts,jsx,tsx}", // core source files
+  ],
+ 
 
   theme: {
     extend: {
@@ -10,4 +15,6 @@ export default {
       },
     },
   },
+
+  plugins: [], // ✅ Add Tailwind plugins here if needed later
 };
