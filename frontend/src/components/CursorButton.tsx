@@ -1,6 +1,7 @@
-import { useState } from "react";
 import Tooltip from "./Tooltip";
-import SplashCursor from "./SplashCursor";
+import { lazy, Suspense, useState } from "react";
+const SplashCursor = lazy(() => import("./SplashCursor"));
+
 import { SparklesIcon } from "@heroicons/react/24/solid"; // or /outline
 
 function CursorButton() {
@@ -11,12 +12,14 @@ function CursorButton() {
   };
 
   return (
-    <div>
-      <Tooltip text={isVisible ? "Magic Cursor ON" : "Magic Cursor OFF"} position="top">
+    <>
+      <Tooltip
+        text={isVisible ? "Magic Cursor ON" : "Magic Cursor OFF"}
+        position="top"
+      >
         <button
           className="hidden md:block z-30 group"
           onClick={toggleVisibility}
-          
         >
           <div className="relative h-12 w-12 ">
             <svg
@@ -68,8 +71,12 @@ function CursorButton() {
           </div>
         </button>
       </Tooltip>
-      {isVisible && <SplashCursor />}
-    </div>
+      {isVisible && (
+        <Suspense fallback={null}>
+          <SplashCursor />
+        </Suspense>
+      )}
+    </>
   );
 }
 
