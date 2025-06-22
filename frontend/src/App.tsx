@@ -1,27 +1,28 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import { Toaster } from "sonner";
-import Dither from "./components/Dither";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
-// Pages
-import About from "./pages/About/About";
-import EducationTimeline from "./pages/Education/EducationTimeline";
-import Skills from "./pages/Skills/Skills";
-import Experience from "./pages/Experience/Experience";
-import Projects from "./pages/Projects/Projects";
-import Achievements from "./pages/Achievements/Achievements";
-import Stats from "./pages/Stats/Stats";
-import Contact from "./pages/Contact/Contact";
+import Sidebar from "./components/Sidebar";
+import Dither from "./components/Dither";
+import { Toaster } from "sonner";
+
+// Lazy-loaded pages
+const About = lazy(() => import("./pages/About/About"));
+const EducationTimeline = lazy(
+  () => import("./pages/Education/EducationTimeline")
+);
+const Skills = lazy(() => import("./pages/Skills/Skills"));
+const Experience = lazy(() => import("./pages/Experience/Experience"));
+const Projects = lazy(() => import("./pages/Projects/Projects"));
+const Achievements = lazy(() => import("./pages/Achievements/Achievements"));
+const Stats = lazy(() => import("./pages/Stats/Stats"));
+const Contact = lazy(() => import("./pages/Contact/Contact"));
 
 function App() {
   return (
     <>
-      {/* Toast notifications */}
-      <Toaster position="top-center" richColors closeButton />
-
+      <Toaster position="top-center" />
       <Router>
-        {/* Dither background effect */}
-        <div className="fixed inset-0 -z-10">
+        <div className="absolute w-full h-full z-0">
           <Dither
             waveColor={[0, 0, 1]}
             disableAnimation={false}
@@ -34,20 +35,23 @@ function App() {
           />
         </div>
 
-        {/* Main layout */}
-        <div className="flex min-h-screen w-full overflow-hidden">
+        <div className="flex">
           <Sidebar />
-          <main className="flex-1 px-4 py-2 md:px-8 md:py-4 overflow-y-auto">
-            <Routes>
-              <Route path="/" element={<About />} />
-              <Route path="/education" element={<EducationTimeline />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/achievements" element={<Achievements />} />
-              <Route path="/stats" element={<Stats />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
+          <main className="flex-1 md:px-8 md:py-2">
+            <Suspense
+              fallback={<div className="text-center p-10">Loading...</div>}
+            >
+              <Routes>
+                <Route path="/" element={<About />} />
+                <Route path="/education" element={<EducationTimeline />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/achievements" element={<Achievements />} />
+                <Route path="/stats" element={<Stats />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </Suspense>
           </main>
         </div>
       </Router>
