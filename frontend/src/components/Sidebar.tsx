@@ -5,6 +5,7 @@ import DownloadButton from "./DownloadButton";
 import CursorButton from "./CursorButton";
 import ProfileIntro from "./ProfileIntro";
 import Typewriter from "typewriter-effect";
+import avatar from "../assets/avatar.jpg";
 import {
   PhoneIcon,
   UserIcon,
@@ -99,7 +100,7 @@ export default function Sidebar() {
               }}
             />
           }
-          avatarUrl="https://res.cloudinary.com/dc4gefidz/image/upload/v1748842041/person-with-hood-that-says-evil-it_647963-12138_n93qrx.jpg"
+          avatarUrl={avatar}
         />
         <nav>
           {menu.map((item) => (
