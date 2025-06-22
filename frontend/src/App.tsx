@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import  Loader  from "./components/Loader";
 import Sidebar from "./components/Sidebar";
-import Dither from "./components/Dither";
+
 import { Toaster } from "sonner";
 
 // Lazy-loaded pages
@@ -16,13 +16,22 @@ const Projects = lazy(() => import("./pages/Projects/Projects"));
 const Achievements = lazy(() => import("./pages/Achievements/Achievements"));
 const Stats = lazy(() => import("./pages/Stats/Stats"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
+import { useEffect, useState } from "react";
+const Dither = lazy(() => import("./components/Dither"));
 
-function App() {
+function App()
+{
+  const [showDither, setShowDither] = useState(false);
+
+  useEffect(() => {
+    requestIdleCallback(() => setShowDither(true));
+  }, []);
   return (
     <>
       <Toaster position="top-center" />
       <Router>
         <div className="absolute w-full h-full z-0">
+        {showDither && (
           <Dither
             waveColor={[0, 0, 1]}
             disableAnimation={false}
@@ -32,8 +41,10 @@ function App() {
             waveAmplitude={0.3}
             waveFrequency={3}
             waveSpeed={0.2}
-          />
+            />
+          )}
         </div>
+      
 
         <div className="flex">
           <Sidebar />
