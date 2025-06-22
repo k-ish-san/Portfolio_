@@ -3,6 +3,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import Sidebar from "./components/Sidebar";
 import { Toaster } from "sonner";
+import DitherLayer from "./components/DitherLayer";
+
 
 // Eager load About page
 import About from "./pages/About/About";
@@ -17,46 +19,25 @@ const Projects = lazy(() => import("./pages/Projects/Projects"));
 const Achievements = lazy(() => import("./pages/Achievements/Achievements"));
 const Stats = lazy(() => import("./pages/Stats/Stats"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
-const Dither = lazy(() => import("./components/Dither"));
+
 
 function App() {
-  const [showDither, setShowDither] = useState(false);
   const [load, updateLoad] = useState(true);
-
-  useEffect(() => {
-    requestIdleCallback(() => setShowDither(true));
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => updateLoad(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
+
   return (
     <>
       <Toaster position="top-center" />
+      <DitherLayer />
       <Router>
         {load ? (
           <Loader load={load} />
         ) : (
-          <>
-            {/* Defer Dither with idle callback */}
-            <div className="absolute w-full h-full z-0 pointer-events-none">
-              {showDither && (
-                <Suspense fallback={null}>
-                  <Dither
-                    waveColor={[0, 0, 1]}
-                    disableAnimation={false}
-                    enableMouseInteraction={true}
-                    mouseRadius={0.3}
-                    colorNum={4}
-                    waveAmplitude={0.3}
-                    waveFrequency={3}
-                    waveSpeed={0.05}
-                  />
-                </Suspense>
-              )}
-            </div>
 
             <div className="flex">
               <Sidebar />
@@ -122,7 +103,6 @@ function App() {
                 </Routes>
               </main>
             </div>
-          </>
         )}
       </Router>
     </>
