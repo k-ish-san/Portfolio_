@@ -6,7 +6,6 @@ import CursorButton from "./CursorButton";
 import ProfileIntro from "./ProfileIntro";
 import Typewriter from "typewriter-effect";
 import {
-  HomeIcon,
   PhoneIcon,
   UserIcon,
   FolderOpenIcon,
@@ -58,8 +57,12 @@ const menu = [
 
 // If you want to use Heroicons for mobile, map menu items to icons
 const mobileMenu = [
-  { icon: <HomeIcon className="w-6 h-6" />, label: "Home", path: "/" },
-  { icon: <UserIcon className="w-6 h-6" />, label: "About", path: "/about" },
+  { icon: <UserIcon className="w-6 h-6" />, label: "About", path: "/" },
+  {
+    icon: <AcademicCapIcon className="w-6 h-6" />,
+    label: "Education",
+    path: "/education",
+  },
   {
     icon: <FolderOpenIcon className="w-6 h-6" />,
     label: "Projects",
