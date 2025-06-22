@@ -3,15 +3,17 @@
 import EducationItem from "./EducationItem";
 import type { EducationItemProps } from "./EducationItem";
 import { Card } from "../../components/Card";
-import logo2 from "../../assets/GcekLogo.webp";
-import logo1 from "../../assets/NbemsLogo.webp";
 
+import logoGCEK from "../../assets/GcekLogo.webp";
+import logoNBEMS from "../../assets/NbemsLogo.webp";
+
+// Static education data
 const educationData: EducationItemProps[] = [
   {
     degree: "B.Tech in Electronics and Communication Engineering",
     institution: "Government College of Engineering Kannur",
     location: "",
-    logo: logo1, // Replace with your actual logo path
+    logo: logoGCEK,
     start: "2020",
     end: "2024",
     highlights: [
@@ -34,7 +36,7 @@ const educationData: EducationItemProps[] = [
     degree: "12th Grade",
     institution: "Nithyananda Bhavan English Medium School",
     location: "",
-    logo: logo2, // Replace with your actual logo path
+    logo: logoNBEMS,
     start: "2018",
     end: "2020",
     highlights: [
@@ -49,7 +51,7 @@ const educationData: EducationItemProps[] = [
     degree: "10th Grade",
     institution: "Nithyananda Bhavan English Medium School",
     location: "",
-    logo: logo2, // Replace with your actual logo path
+    logo: logoNBEMS,
     start: "2016",
     end: "2018",
     highlights: [
@@ -59,19 +61,16 @@ const educationData: EducationItemProps[] = [
     ],
     tags: ["Mathematics", "Economics", "Physics", "Chemistry"],
   },
-  
 ];
 
 export default function EducationTimeline() {
   return (
     <Card title="Education">
       <div className="relative pt-2">
-        {/* Vertical timeline line */}
-        
         <div className="flex flex-col gap-12">
           {educationData.map((item, idx) => (
             <EducationItem
-              key={item.degree}
+              key={`${item.institution}-${item.start}`}
               {...item}
               isFirst={idx === 0}
               isLast={idx === educationData.length - 1}

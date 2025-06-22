@@ -1,44 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import ProjectCard from "./ProjectCard";
-import {Card} from "../../components/Card";
+import { Card } from "../../components/Card";
 import Tooltip from "../../components/Tooltip";
 import {
   SiReact,
   SiFirebase,
   SiNpm,
-  SiHtml5,
-  SiCss3,
   SiJavascript,
   SiImdb,
   SiArduino,
   SiRaspberrypi,
   SiVercel,
-
-  // SiFigma,
   SiTailwindcss,
   SiMongodb,
   SiExpress,
   SiVite,
-  //SiOverleaf,
   SiPostman,
-  // SiPerplexity,
-  // SiGithub,
   SiRedux,
 } from "react-icons/si";
-
 import { DiNodejs } from "react-icons/di";
-
 import {
   MdOutlineSensors,
   MdOutlineSolarPower,
   MdOutlineWifiTethering,
   MdOutlineCloudUpload,
 } from "react-icons/md";
-
 import { FaCarBattery } from "react-icons/fa";
 
+const categories = ["All", "Web development", "IoT"];
+
+// Project list
 const projects = [
-  // E-commerce Website using MERN Stack
   {
     image:
       "https://res.cloudinary.com/dc4gefidz/image/upload/v1748863601/c9ca06ec-4bac-4fd2-9df2-71a267d3ec98.png",
@@ -60,7 +52,6 @@ const projects = [
     live: "https://mern-frontend-tau-two.vercel.app/",
     category: "Web development",
   },
-  // Tmdb Clone
   {
     image:
       "https://res.cloudinary.com/dc4gefidz/image/upload/v1748864535/5624ba8e-05d1-46bc-a004-4a9a4b3897fd.png",
@@ -76,7 +67,6 @@ const projects = [
     live: "https://tmdb-clone-ticp.vercel.app/",
     category: "Web development",
   },
-  // Water Quality Monitoring System using LoRaWAN
   {
     image:
       "https://res.cloudinary.com/dc4gefidz/image/upload/v1748863045/Screenshot_2025-06-02_164708_wopzzj.png",
@@ -93,7 +83,6 @@ const projects = [
     live: "https://github.com/k-ish-san/Water-Quality-Monitoring-System-using-LoRaWAN/blob/main/Water%20Quality%20Monitoring%20System%20using%20LoRaWAN.pdf",
     category: "IoT",
   },
-  // Pollution Monitoring System using ESP32
   {
     image:
       "https://res.cloudinary.com/dc4gefidz/image/upload/v1748863411/Screenshot_2025-06-02_162707_zcnbhj.png",
@@ -111,62 +100,49 @@ const projects = [
     live: "https://github.com/k-ish-san/Pollution-monitoring-system-for-enhancing-sustainability-of-environment-using-IoT/blob/main/POLLUTION%20MONITORING%20SYSTEM%20FOR%20ENHANCING%20THE%20SUSTAINABILITY%20OF%20ENVIRONMENT%20USING%20IOT.pdf",
     category: "IoT",
   },
-  // Rock Paper Scissors Game
-  {
-    image:
-      "https://res.cloudinary.com/dc4gefidz/image/upload/v1748864915/22409bb1-55ad-4bc0-b3b5-c6c08805b17b.png",
-    title: "Rock Paper Scissors Game",
-    tags: [
-      { label: "Html5", icon: SiHtml5 },
-      { label: "Css3", icon: SiCss3 },
-      { label: "Javascript", icon: SiJavascript },
-    ],
-    github: "https://github.com/k-ish-san/Rock-Paper-Scissors",
-    live: "https://k-ish-san.github.io/Rock-Paper-Scissors/",
-    category: "Web development",
-  },
-  // ...more projects
+
 ];
-
-const categories = ["All", "Web development", "IoT"];
-
-
-
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState("All");
-  const filteredProjects =
-    filter === "All" ? projects : projects.filter((p) => p.category === filter);
+
+  const filteredProjects = useMemo(() => {
+    return filter === "All"
+      ? projects
+      : projects.filter((p) => p.category === filter);
+  }, [filter]);
 
   return (
     <Card title="Projects">
       <div className="flex flex-col">
-        {/* Sticky Category Buttons */}
-        <div className="sticky top-0 z-10 border-b border-gray-300 dark:border-zinc-700 px-12 py-3 pb-6 light:bg-blue-100 w-full dark:bg-gray-800">
-          <div className="flex flex-wrap gap-2 items-center">
+        {/* Filter Tabs */}
+        <div className="sticky top-0 z-20 px-6 py-4 border-b bg-transparent dark:bg-gray-900/80 backdrop-blur border-gray-200 dark:border-gray-700">
+          <div className="flex flex-wrap gap-3 items-center justify-start">
             {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`px-4 py-2 rounded-sm border ${
-                  filter === cat
-                    ? "bg-[#3aa5fd] text-white border-[#3aa5fd]"
-                    : "bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-200 border-[#3aa5fd]"
-                } font-semibold transition`}
-                onClick={() => setFilter(cat)}
-              >
-                <Tooltip text={`Filter by: ${cat}`}>{cat}</Tooltip>
-              </button>
-            ))}
-            <span className="bg-[#3aa5fd] rounded-sm py-2 px-3 text-white border-2 border-indigo-200">
-              <Tooltip text="Number of Projects">
-                {filteredProjects.length}
+              <Tooltip key={cat} text={`Filter by: ${cat}`}>
+                <button
+                  className={`px-4 py-2 rounded-sm font-semibold border transition ${
+                    filter === cat
+                      ? "bg-[#3aa5fd] text-white border-[#3aa5fd]"
+                      : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-[#3aa5fd]"
+                  }`}
+                  onClick={() => setFilter(cat)}
+                  aria-label={`Filter projects by ${cat}`}
+                >
+                  {cat}
+                </button>
               </Tooltip>
-            </span>
+            ))}
+            <Tooltip text="Total Projects">
+              <span className="ml-2 bg-[#3aa5fd] text-white px-3 py-2 text-sm rounded-sm border border-[#3aa5fd]">
+                {filteredProjects.length}
+              </span>
+            </Tooltip>
           </div>
         </div>
 
-        {/* Project Grid - no scroll here */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4 px-2">
+        {/* Grid of Projects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-2 py-6">
           {filteredProjects.map((project, idx) => (
             <ProjectCard key={project.title + idx} {...project} />
           ))}

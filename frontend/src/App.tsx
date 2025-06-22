@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-
+import  Loader  from "./components/Loader";
 import Sidebar from "./components/Sidebar";
 import Dither from "./components/Dither";
 import { Toaster } from "sonner";
@@ -39,7 +39,11 @@ function App() {
           <Sidebar />
           <main className="flex-1 md:px-8 md:py-2">
             <Suspense
-              fallback={<div className="text-center p-10">Loading...</div>}
+              fallback={
+                <div className="h-screen flex items-center justify-center">
+                  <Loader label="Loading content..." />
+                </div>
+              }
             >
               <Routes>
                 <Route path="/" element={<About />} />

@@ -6,9 +6,12 @@ interface SkillCardProps {
 }
 
 const SkillCard: React.FC<SkillCardProps> = ({ icon, label }) => (
-  <div className="flex flex-col items-center justify-center bg-transparent border dark:border-white light:border:black rounded-lg p-2 min-w-[100px] min-h-[100px] hover:scale-105 transition-transform duration-200 shadow-md">
-    <div className="text-3xl light:text-black dark:text-white">{icon}</div>
-    <span className=" light:text-black dark:text-white font-mono text-sm tracking-widest uppercase">
+  <div
+    role="listitem"
+    className="flex flex-col items-center justify-center min-w-[100px] min-h-[100px] px-4 py-3 rounded-lg border border-gray-300 dark:border-white shadow-md dark:shadow-black bg-transparent transition-transform hover:scale-105 duration-200"
+  >
+    <div className="text-3xl text-gray-900 dark:text-white">{icon}</div>
+    <span className="mt-2 text-sm font-mono tracking-widest uppercase text-gray-800 dark:text-gray-200">
       {label}
     </span>
   </div>

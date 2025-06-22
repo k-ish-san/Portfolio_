@@ -1,4 +1,3 @@
-// src/components/ProfileIntro.tsx
 import React from "react";
 
 interface ProfileIntroProps {
@@ -12,15 +11,27 @@ const ProfileIntro: React.FC<ProfileIntroProps> = ({
   title,
   avatarUrl,
 }) => (
-  <div className="flex flex-col items-center">
+  <div className="flex flex-col items-center" role="presentation">
     <img
       src={avatarUrl}
-      alt={name}
+      alt={`Portrait of ${name}`}
+      width={120}
+      height={140}
+      loading="lazy"
       className="w-30 h-35 rounded-3xl object-cover bg-gray-200"
     />
     <div>
-      <div className="text-lg text-white mt-2">{name}</div>
-      <div className="text-sm text-center text-[#3aa5fd]">{title}</div>
+      <div className="text-lg text-white mt-2 font-semibold" aria-label="Name">
+        {name}
+      </div>
+      {title && (
+        <div
+          className="text-sm text-center text-[#3aa5fd]"
+          aria-label="Professional Title"
+        >
+          {title}
+        </div>
+      )}
     </div>
   </div>
 );
