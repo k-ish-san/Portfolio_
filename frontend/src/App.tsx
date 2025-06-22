@@ -52,7 +52,7 @@ function App() {
                     colorNum={4}
                     waveAmplitude={0.3}
                     waveFrequency={3}
-                    waveSpeed={0.2}
+                    waveSpeed={0.05}
                   />
                 </Suspense>
               )}
