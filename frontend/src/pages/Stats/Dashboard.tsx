@@ -4,7 +4,7 @@ import { showNotification } from "../../components/NotificationCard";
 const containerClass = "flex flex-col items-center text-[#3aa5fd]";
 const imageClass = "rounded-lg shadow-lg max-w-[400px] w-full";
 
-const GithubCalendar = () => {
+const Dashboard = () => {
   return (
     <div className="w-full flex justify-center py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 w-full max-w-7xl px-4">
@@ -95,4 +95,4 @@ const GithubCalendar = () => {
   );
 };
 
-export default GithubCalendar;
+export default Dashboard;
