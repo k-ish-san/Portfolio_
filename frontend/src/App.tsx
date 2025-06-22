@@ -26,10 +26,26 @@ function App()
   useEffect(() => {
     requestIdleCallback(() => setShowDither(true));
   }, []);
+
+  const [load, updateLoad] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateLoad(false);
+    }, 2400);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
     <>
       <Toaster position="top-center" />
       <Router>
+      {load ? (
+          <Loader load={load} />
+        ) : (
+            <>
         <div className="absolute w-full h-full z-0">
         {showDither && (
           <Dither
@@ -68,7 +84,8 @@ function App()
               </Routes>
             </Suspense>
           </main>
-        </div>
+              </div>
+              </>)}
       </Router>
     </>
   );
