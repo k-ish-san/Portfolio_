@@ -18,6 +18,7 @@ function CursorButton() {
         position="top"
       >
         <button
+          aria-label="Toggle Theme"
           className="hidden md:block z-30 group"
           onClick={toggleVisibility}
         >

@@ -9,6 +9,7 @@ const DownloadButton: React.FC = () => {
   return (
     <Tooltip text="View Resume" position="top">
       <button
+        aria-label="View Resume"
         onClick={() =>
           showNotification(resume_link, "Visit Overleaf to view Resume")
         }
