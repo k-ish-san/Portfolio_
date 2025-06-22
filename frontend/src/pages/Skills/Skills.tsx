@@ -1,64 +1,21 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 import { Card } from "../../components/Card";
-const SkillGrid = React.lazy(() => import("./SkillGrid")); // Lazy-load grid
-
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiTypescript,
-  SiReact,
-  SiNodedotjs,
-  SiPython,
-  SiCplusplus,
-  SiGit,
-  SiVercel,
-  SiFigma,
-  SiTailwindcss,
-  SiMongodb,
-  SiExpress,
-  SiVite,
-  SiOverleaf,
-  SiPostman,
-  SiPerplexity,
-  SiGithub,
-  SiRedux,
-} from "react-icons/si";
-import { DiVisualstudio, DiMysql } from "react-icons/di";
-
-// Skill Arrays (keep outside component for perf)
-const skills = [
-  { icon: <SiHtml5 />, label: "HTML" },
-  { icon: <SiCss3 />, label: "CSS" },
-  { icon: <SiPython />, label: "Python" },
-  { icon: <SiJavascript />, label: "JavaScript" },
-  { icon: <SiTypescript />, label: "TypeScript" },
-  { icon: <SiCplusplus />, label: "C++" },
-  { icon: <SiReact />, label: "React.js" },
-  { icon: <SiNodedotjs />, label: "Node.js" },
-  { icon: <SiExpress />, label: "Express.js" },
-  { icon: <SiTailwindcss />, label: "Tailwind CSS" },
-  { icon: <SiMongodb />, label: "MongoDB" },
-  { icon: <DiMysql />, label: "MySQL" },
-];
-
-const tools = [
-  { icon: <DiVisualstudio />, label: "VS Code" },
-  { icon: <SiGithub />, label: "GitHub" },
-  { icon: <SiVercel />, label: "Vercel" },
-  { icon: <SiGit />, label: "Git" },
-  { icon: <SiVite />, label: "Vite" },
-  { icon: <SiRedux />, label: "Redux" },
-  { icon: <SiFigma />, label: "Figma" },
-  { icon: <SiPostman />, label: "Postman" },
-  { icon: <SiOverleaf />, label: "Overleaf" },
-  { icon: <SiPerplexity />, label: "Perplexity" },
-];
+const SkillGrid = lazy(() => import("./SkillGrid"));
 
 const Skills: React.FC = () => {
+  const [technicalSkills, setTechnicalSkills] = useState<any[]>([]);
+  const [toolSkills, setToolSkills] = useState<any[]>([]);
+
+  // Dynamically import icons only when component mounts
+  useEffect(() => {
+    import("./SkillIcons").then((mod) => {
+      setTechnicalSkills(mod.technicalSkills);
+      setToolSkills(mod.toolSkills);
+    });
+  }, []);
+
   return (
     <Card title="Skills">
-      {/* Technical Skills Section */}
       <section aria-labelledby="tech-skills">
         <h2
           id="tech-skills"
@@ -66,18 +23,11 @@ const Skills: React.FC = () => {
         >
           <span className="text-[#3aa5fd]">Technical</span> Skills
         </h2>
-        <Suspense
-          fallback={
-            <div className="h-10" aria-busy="true">
-              Loading...
-            </div>
-          }
-        >
-          <SkillGrid skills={skills} />
+        <Suspense fallback={<div className="h-10">Loading...</div>}>
+          <SkillGrid skills={technicalSkills} />
         </Suspense>
       </section>
 
-      {/* Tools Section */}
       <section aria-labelledby="tools-skills">
         <h2
           id="tools-skills"
@@ -85,14 +35,8 @@ const Skills: React.FC = () => {
         >
           <span className="text-[#3aa5fd]">Tools</span> I Use
         </h2>
-        <Suspense
-          fallback={
-            <div className="h-10" aria-busy="true">
-              Loading...
-            </div>
-          }
-        >
-          <SkillGrid skills={tools} />
+        <Suspense fallback={<div className="h-10">Loading...</div>}>
+          <SkillGrid skills={toolSkills} />
         </Suspense>
       </section>
     </Card>
