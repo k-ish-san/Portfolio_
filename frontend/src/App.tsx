@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar";
 import { Toaster } from "sonner";
 
 // Lazy-loaded pages
-const About = lazy(() => import("./pages/About/About"));
+import About from "./pages/About/About"; // Eager-load
 const EducationTimeline = lazy(
   () => import("./pages/Education/EducationTimeline")
 );
@@ -68,7 +68,7 @@ function App()
             <Suspense
               fallback={
                 <div className="h-screen flex items-center justify-center">
-                  <Loader label="Loading content..." />
+                  <Loader load={load} />
                 </div>
               }
             >
