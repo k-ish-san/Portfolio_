@@ -1,8 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Card } from "../../components/Card";
-import SkillGrid from "./SkillGrid";
+const SkillGrid = React.lazy(() => import("./SkillGrid")); // Lazy entire grid
 
-import { DiVisualstudio, DiMysql } from "react-icons/di";
 import {
   SiHtml5,
   SiCss3,
@@ -25,9 +24,9 @@ import {
   SiGithub,
   SiRedux,
 } from "react-icons/si";
+import { DiVisualstudio, DiMysql } from "react-icons/di";
 
 const skills = [
-
   { icon: <SiHtml5 />, label: "HTML" },
   { icon: <SiCss3 />, label: "CSS" },
   { icon: <SiPython />, label: "Python" },
@@ -43,7 +42,6 @@ const skills = [
 ];
 
 const tools = [
-    
   { icon: <DiVisualstudio />, label: "VS Code" },
   { icon: <SiGithub />, label: "GitHub" },
   { icon: <SiVercel />, label: "Vercel" },
@@ -57,18 +55,22 @@ const tools = [
 ];
 
 const Skills: React.FC = () => {
-    return (
-      <Card title="Skills">
-        <h2 className="text-2xl font-semibold dark:text-white my-4">
-          <span className="text-[#3aa5fd]">Technical</span> Skills
-        </h2>
+  return (
+    <Card title="Skills">
+      <h2 className="text-2xl font-semibold dark:text-white my-4">
+        <span className="text-[#3aa5fd]">Technical</span> Skills
+      </h2>
+      <Suspense fallback={<div className="h-10">Loading...</div>}>
         <SkillGrid skills={skills} />
-        <h2 className="text-2xl font-semibold dark:text-white my-4">
-          <span className="text-[#3aa5fd]">Tools</span> I Use
-        </h2>
+      </Suspense>
+      <h2 className="text-2xl font-semibold dark:text-white my-4">
+        <span className="text-[#3aa5fd]">Tools</span> I Use
+      </h2>
+      <Suspense fallback={<div className="h-10">Loading...</div>}>
         <SkillGrid skills={tools} />
-      </Card>
-    );
+      </Suspense>
+    </Card>
+  );
 };
 
 export default Skills;
