@@ -125,10 +125,9 @@ export default function Sidebar() {
               to={item.path}
               end={item.path === "/"}
               className={({ isActive }) =>
-                `flex items-center gap-4 px-4 py-3 rounded-lg cursor-pointer font-medium transition-colors duration-200 ${
-                  isActive
-                    ? "bg-[#3aa5fd] text-black hover:text-black"
-                    : "text-gray-500 hover:text-[#3aa5fd]"
+                `flex items-center gap-4 px-4 py-3 rounded-lg cursor-pointer font-medium transition-colors duration-200 ${isActive
+                  ? "bg-[#3aa5fd] text-black hover:text-black"
+                  : "text-gray-300 hover:text-[#3aa5fd]"
                 }`
               }
             >
