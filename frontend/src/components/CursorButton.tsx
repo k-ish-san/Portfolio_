@@ -55,7 +55,7 @@ function CursorButton() {
               fill="yellow"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute right-6 top-0 h-6 w-6 text-white z-20 hidden group-hover:block"
+              className="group-hover:block hidden absolute right-6 top-0 h-6 w-6 text-white z-20"
             >
               <path
                 clipRule="evenodd"
