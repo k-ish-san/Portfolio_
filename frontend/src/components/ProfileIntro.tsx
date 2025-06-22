@@ -17,6 +17,8 @@ const ProfileIntro: React.FC<ProfileIntroProps> = ({
       alt={`Portrait of ${name}`}
       width={120}
       height={140}
+      // 👇 Avoid lazy for LCP image
+      fetchPriority="high"
       className="w-[120px] h-[140px] rounded-3xl object-cover bg-gray-200"
     />
     <div className="text-center mt-2">

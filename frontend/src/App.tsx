@@ -32,7 +32,7 @@ function App()
   useEffect(() => {
     const timer = setTimeout(() => {
       updateLoad(false);
-    }, 2400);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
