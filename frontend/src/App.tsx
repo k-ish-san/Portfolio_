@@ -40,18 +40,21 @@ function App() {
           <Loader load={load} />
         ) : (
           <>
-            <div className="absolute w-full h-full z-0">
+            {/* Defer Dither with idle callback */}
+            <div className="absolute w-full h-full z-0 pointer-events-none">
               {showDither && (
-                <Dither
-                  waveColor={[0, 0, 1]}
-                  disableAnimation={false}
-                  enableMouseInteraction={true}
-                  mouseRadius={0.3}
-                  colorNum={4}
-                  waveAmplitude={0.3}
-                  waveFrequency={3}
-                  waveSpeed={0.2}
-                />
+                <Suspense fallback={null}>
+                  <Dither
+                    waveColor={[0, 0, 1]}
+                    disableAnimation={false}
+                    enableMouseInteraction={true}
+                    mouseRadius={0.3}
+                    colorNum={4}
+                    waveAmplitude={0.3}
+                    waveFrequency={3}
+                    waveSpeed={0.2}
+                  />
+                </Suspense>
               )}
             </div>
 
@@ -63,9 +66,7 @@ function App() {
                   <Route
                     path="/education"
                     element={
-                      <Suspense
-                        fallback={<Loader load={true} />}
-                      >
+                      <Suspense fallback={<Loader load={true} />}>
                         <EducationTimeline />
                       </Suspense>
                     }
@@ -81,9 +82,7 @@ function App() {
                   <Route
                     path="/experience"
                     element={
-                      <Suspense
-                        fallback={<Loader load={true} />}
-                      >
+                      <Suspense fallback={<Loader load={true} />}>
                         <Experience />
                       </Suspense>
                     }
@@ -91,9 +90,7 @@ function App() {
                   <Route
                     path="/projects"
                     element={
-                      <Suspense
-                        fallback={<Loader load={true} />}
-                      >
+                      <Suspense fallback={<Loader load={true} />}>
                         <Projects />
                       </Suspense>
                     }
@@ -101,9 +98,7 @@ function App() {
                   <Route
                     path="/achievements"
                     element={
-                      <Suspense
-                        fallback={<Loader load={true} />}
-                      >
+                      <Suspense fallback={<Loader load={true} />}>
                         <Achievements />
                       </Suspense>
                     }
@@ -119,9 +114,7 @@ function App() {
                   <Route
                     path="/contact"
                     element={
-                      <Suspense
-                        fallback={<Loader load={true} />}
-                      >
+                      <Suspense fallback={<Loader load={true} />}>
                         <Contact />
                       </Suspense>
                     }
