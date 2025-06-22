@@ -116,7 +116,7 @@ const Projects: React.FC = () => {
     <Card title="Projects">
       <div className="flex flex-col">
         {/* Filter Tabs */}
-        <div className="sticky top-0 z-20 px-6 py-4 border-b bg-transparent dark:bg-gray-900/80 backdrop-blur border-gray-200 dark:border-gray-700">
+        <div className="sticky top-0 z-20 px-6 py-4 border-b light:bg-blue-100 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
           <div className="flex flex-wrap gap-3 items-center justify-start">
             {categories.map((cat) => (
               <Tooltip key={cat} text={`Filter by: ${cat}`}>
