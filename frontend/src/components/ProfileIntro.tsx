@@ -17,20 +17,21 @@ const ProfileIntro: React.FC<ProfileIntroProps> = ({
       alt={`Portrait of ${name}`}
       width={120}
       height={140}
-      loading="lazy"
-      className="w-30 h-35 rounded-3xl object-cover bg-gray-200"
+      // 👇 Avoid lazy for LCP image
+      fetchPriority="high"
+      className="w-[120px] h-[140px] rounded-3xl object-cover bg-gray-200"
     />
-    <div>
-      <div className="text-lg text-white mt-2 font-semibold" aria-label="Name">
+    <div className="text-center mt-2">
+      <h1 className="text-lg text-white font-semibold" aria-label="Name">
         {name}
-      </div>
+      </h1>
       {title && (
-        <div
-          className="text-sm text-center text-[#3aa5fd]"
+        <h2
+          className="text-sm text-[#3aa5fd] mt-1"
           aria-label="Professional Title"
         >
           {title}
-        </div>
+        </h2>
       )}
     </div>
   </div>
