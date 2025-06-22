@@ -5,7 +5,7 @@ import DownloadButton from "./DownloadButton";
 import CursorButton from "./CursorButton";
 import ProfileIntro from "./ProfileIntro";
 import Typewriter from "typewriter-effect";
-import avatar from "../assets/avatar.jpg";
+import avatar from "../assets/avatar.webp";
 import {
   PhoneIcon,
   UserIcon,
