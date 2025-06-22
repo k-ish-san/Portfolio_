@@ -1,5 +1,4 @@
-
-import { Route, BrowserRouter as Router, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import { Toaster } from "sonner";
 import Dither from "./components/Dither";
@@ -13,16 +12,16 @@ import Projects from "./pages/Projects/Projects";
 import Achievements from "./pages/Achievements/Achievements";
 import Stats from "./pages/Stats/Stats";
 import Contact from "./pages/Contact/Contact";
-// ...other imports
 
 function App() {
   return (
     <>
-      <Toaster position="top-center" />
+      {/* Toast notifications */}
+      <Toaster position="top-center" richColors closeButton />
+
       <Router>
-        <div style={{
-          width: "100%", height: "100%", position: "absolute", zIndex: 0
-        }}>
+        {/* Dither background effect */}
+        <div className="fixed inset-0 -z-10">
           <Dither
             waveColor={[0, 0, 1]}
             disableAnimation={false}
@@ -35,9 +34,10 @@ function App() {
           />
         </div>
 
-        <div className="flex ">
+        {/* Main layout */}
+        <div className="flex min-h-screen w-full overflow-hidden">
           <Sidebar />
-          <main className="flex-1  md:px-8 md:py-2">
+          <main className="flex-1 px-4 py-2 md:px-8 md:py-4 overflow-y-auto">
             <Routes>
               <Route path="/" element={<About />} />
               <Route path="/education" element={<EducationTimeline />} />
@@ -47,7 +47,6 @@ function App() {
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/stats" element={<Stats />} />
               <Route path="/contact" element={<Contact />} />
-              {/* ...other routes */}
             </Routes>
           </main>
         </div>
