@@ -5,11 +5,15 @@
 @custom-variant light (&:where(.light, .light *));
 @custom-variant dark (&:where(.dark, .dark *));
 
-
-@theme {
-  --font-orbitron: "Orbitron", sans-serif;
+@font-face {
+  font-family: 'Orbitron';
+  src: url('frontend/public/fonts/Orbitron-Regular.ttf') format('woff2');
+  font-display: swap;
 }
-
+/* Removed invalid @theme at-rule. If you want to set a global font, use body or :root selector. */
+body {
+  font-family: 'Orbitron', sans-serif;
+}
 /* For modern browsers */
 ::-webkit-scrollbar {
   width: 8px;
