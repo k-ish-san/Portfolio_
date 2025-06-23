@@ -1,35 +1,44 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 
-// Lazy-load the heavy Dither shader only when needed
+// Lazy-load the Dither component
 const Dither = lazy(() => import("./Dither"));
+
+function useIdleCallbackEffect(callback: () => void, delay = 2000) {
+  useEffect(() => {
+    let id: number;
+
+    const win = window as Window & typeof globalThis;
+    if ("requestIdleCallback" in win) {
+      // @ts-ignore
+      id = requestIdleCallback(callback);
+    } else {
+      id = window.setTimeout(callback, delay);
+    }
+
+    return () => {
+      if ("cancelIdleCallback" in window) {
+        // @ts-ignore
+        cancelIdleCallback(id);
+      } else {
+        clearTimeout(id);
+      }
+    };
+  }, []);
+}
 
 export default function DitherLayer() {
   const [showDither, setShowDither] = useState(false);
 
-  useEffect(() => {
-    if ("requestIdleCallback" in window) {
-      requestIdleCallback(() => setShowDither(true));
-    } else {
-      // Fallback if requestIdleCallback isn't supported
-      setTimeout(() => setShowDither(true), 2000);
-    }
-  }, []);
+  useIdleCallbackEffect(() => {
+    setShowDither(true);
+  }, 2000);
 
   if (!showDither) return null;
 
   return (
     <Suspense fallback={null}>
       <div className="absolute w-full h-full z-0 pointer-events-none will-change-transform">
-        <Dither
-          waveColor={[0, 0, 1]}
-          disableAnimation={false}
-          enableMouseInteraction={true}
-          mouseRadius={0.3}
-          colorNum={4}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.05}
-        />
+        <Dither />
       </div>
     </Suspense>
   );

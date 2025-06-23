@@ -8,6 +8,7 @@ import { Toaster } from "sonner";
 
 // Eager load About page
 import About from "./pages/About/About";
+import DitherLayer from "./components/DitherLayer";
 
 // Lazy-load other pages
 const EducationTimeline = lazy(
@@ -33,13 +34,14 @@ function App() {
   return (
     <>
       <Toaster position="top-center" />
-  
+
       <Router>
         {load ? (
           <Loader load={load} />
         ) : (
-
+          <>
             <div className="flex">
+              <DitherLayer />
               <Sidebar />
               <main className="flex-1 md:px-8 md:py-2">
                 <Routes>
@@ -103,6 +105,7 @@ function App() {
                 </Routes>
               </main>
             </div>
+          </>
         )}
       </Router>
     </>
