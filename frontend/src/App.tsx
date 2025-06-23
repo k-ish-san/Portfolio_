@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import Sidebar from "./components/Sidebar";
 import { Toaster } from "sonner";
-import DitherLayer from "./components/DitherLayer";
+
 
 
 // Eager load About page
@@ -33,7 +33,7 @@ function App() {
   return (
     <>
       <Toaster position="top-center" />
-      <DitherLayer />
+  
       <Router>
         {load ? (
           <Loader load={load} />
