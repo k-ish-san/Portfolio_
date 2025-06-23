@@ -41,7 +41,9 @@ function App() {
         ) : (
           <>
             <div className="flex">
-              <DitherLayer />
+              <div className="display:none">
+                <DitherLayer />
+              </div>
               <Sidebar />
               <main className="flex-1 md:px-8 md:py-2">
                 <Routes>
