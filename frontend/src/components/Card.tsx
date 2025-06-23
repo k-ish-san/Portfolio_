@@ -79,7 +79,7 @@ export function Card({
     <div
       ref={cardRef}
       style={cardStyle}
-      className={`bg-blue-100 dark:bg-gray-800 font-orbitron rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 ease-in-out ${
+      className={`light:bg-blue-100 dark:bg-gray-800 font-orbitron rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 ease-in-out ${
         isMounted ? "translate-x-0" : "translate-x-full"
       } ${className}`}
     >

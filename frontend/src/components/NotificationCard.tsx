@@ -30,6 +30,8 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
       <button
         onClick={handleCancel}
         className="absolute top-4 right-4 text-zinc-400 hover:text-white"
+        aria-label="Close notification"
+        title="Close notification"
       >
         <XMarkIcon className="w-5 h-5" />
       </button>

@@ -11,11 +11,12 @@ const SkillGrid: React.FC<SkillGridProps> = ({ skills }) => (
     role="list"
   >
     {skills.map((skill, idx) => (
-      <SkillCard
-        key={`${skill.label}-${idx}`}
-        icon={skill.icon}
-        label={skill.label}
-      />
+      <div role="listitem" key={`${skill.label}-${idx}`} className="w-full flex justify-center">
+        <SkillCard
+          icon={skill.icon}
+          label={skill.label}
+        />
+      </div>
     ))}
   </div>
 );
