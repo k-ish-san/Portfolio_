@@ -41,68 +41,20 @@ function App() {
         ) : (
           <>
             <div className="flex">
-            
               <Sidebar />
               <main className="flex-1 md:px-8 md:py-2">
-                <Routes>
-                  <Route path="/" element={<About />} />
-                  <Route
-                    path="/education"
-                    element={
-                      <Suspense fallback={<Loader load={true} />}>
-                        <EducationTimeline />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/skills"
-                    element={
-                      <Suspense fallback={<Loader load={true} />}>
-                        <Skills />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/experience"
-                    element={
-                      <Suspense fallback={<Loader load={true} />}>
-                        <Experience />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/projects"
-                    element={
-                      <Suspense fallback={<Loader load={true} />}>
-                        <Projects />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/achievements"
-                    element={
-                      <Suspense fallback={<Loader load={true} />}>
-                        <Achievements />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/stats"
-                    element={
-                      <Suspense fallback={<Loader load={true} />}>
-                        <Stats />
-                      </Suspense>
-                    }
-                  />
-                  <Route
-                    path="/contact"
-                    element={
-                      <Suspense fallback={<Loader load={true} />}>
-                        <Contact />
-                      </Suspense>
-                    }
-                  />
-                </Routes>
+                <Suspense fallback={<Loader load={true} />}>
+                  <Routes>
+                    <Route path="/" element={<About />} />
+                    <Route path="/education" element={<EducationTimeline />} />
+                    <Route path="/skills" element={<Skills />} />
+                    <Route path="/experience" element={<Experience />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/achievements" element={<Achievements />} />
+                    <Route path="/stats" element={<Stats />} />
+                    <Route path="/contact" element={<Contact />} />
+                  </Routes>
+                </Suspense>
               </main>
             </div>
           </>
