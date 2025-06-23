@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tailwindcss from "@tailwindcss/vite";
 import glsl from "vite-plugin-glsl";
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,5 +11,5 @@ export default defineConfig({
     minify: "esbuild",
     sourcemap: false,
   },
-  plugins: [react(), glsl()],
+  plugins: [react(), tailwindcss(), glsl()],
 });
